@@ -48,10 +48,16 @@ const Login = () => {
       // const response = await axios.post("http://15.207.195.184:8000/api/v1/login", {
         // console.log("Hi");
       // const response = await axios.post("https://us-central1-joyomoney-a8630.cloudfunctions.net/joyMoney/api/v1/login", {
-      const response = await axios.post(`${backendUrl}/login`, {
+      const response = await axios.post(`${backendUrl}/login`,
+      {
         email: formData.email,
         password: formData.password,
         user_type: formData.user_type,
+      },
+      {
+        headers:{
+          "Access-Control-Allow-Origin":"*"
+        }
       });
       console.log("This is login responwe ",response);
 
